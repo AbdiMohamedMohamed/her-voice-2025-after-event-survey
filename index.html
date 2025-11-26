@@ -1,326 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>HER VOICE 2025 – Post-Event Survey</title>
+<meta charset="UTF-8">
+<title>HER VOICE 2025 – Post-Event Survey</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #b23c2b;
-      --bg: #fdf7f3;
-      --footer-bg: #f9f0e8;
-    }
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fbf5f1;
+    color: #3d2c2c;
+  }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: #333;
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
+  /* Container width control */
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+  }
 
-    .page {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: var(--bg);
-    }
+  /* Banner */
+  .banner {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: block;
+    padding-top: 20px;
+  }
 
-    /* ===== HEADER BANNER ===== */
-    .header {
-      padding: 24px 0 10px;
-    }
+  /* Page Title Section */
+  .title-section {
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 20px;
+  }
 
-    .header-inner {
-      margin: 0 16px;
-      text-align: center;
-    }
+  .title-section h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #9c3d2f;
+  }
+  .title-section h2 {
+    margin-top: 6px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #9c3d2f;
+  }
 
-    .banner-image {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      display: block;
-      margin: 0 auto;
-    }
+  /* Main Content Layout */
+  .content-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
 
-    /* ===== DOWNLOAD BUTTON ===== */
-    .download-wrap {
-      margin: 6px 16px 0;
-      text-align: right;
-    }
+  .left, .right {
+    flex: 1;
+  }
 
-    .download-btn {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(178,60,43,0.3);
-      color: var(--primary);
-      background: rgba(255,255,255,0.9);
-      font-size: 12px;
-      font-weight: 500;
-      text-decoration: none;
-    }
+  h3 {
+    color: #9c3d2f;
+    margin-bottom: 10px;
+  }
 
-    .download-btn:hover {
-      background: #ffffff;
-    }
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
 
-    /* ===== MAIN CONTENT ===== */
-    .content {
-      padding: 16px 16px 10px;
-    }
+  .event-details p {
+    margin: 4px 0;
+  }
 
-    .content-inner {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      align-items: flex-start;
-      justify-content: center;
-    }
+  /* QR Box */
+  .qr-box {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    border: 1px solid #eaded3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  }
 
-    .left,
-    .right {
-      flex: 1 1 360px;
-      min-width: 320px;
-    }
+  .qr-box img {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 12px;
+  }
 
-    h1.page-title {
-      margin-top: 0;
-      margin-bottom: 6px;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--primary);
-    }
+  /* Footer Bar */
+  .footer {
+    margin-top: 30px;
+    padding: 10px 20px 14px;
+    border-top: 1px solid #e8dcd2;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    color: #6f5a55;
+  }
 
-    h2 {
-      margin-top: 4px;
-      color: var(--primary);
-      font-size: 22px;
-      font-weight: 600;
-    }
+  /* Remove page gaps when printing */
+  @media print {
+    @page { margin: 0; }
+    body { margin: 0; }
+    .page-wrap { padding: 0; }
+    .footer { display: none; }
+  }
+</style>
 
-    p {
-      font-size: 14px;
-      line-height: 1.5;
-      margin: 0.35rem 0;
-    }
-
-    .event-details h3 {
-      margin-top: 12px;
-      margin-bottom: 6px;
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .event-details p {
-      margin: 2px 0;
-      font-size: 13px;
-    }
-
-    .footnote {
-      font-size: 11px;
-      margin-top: 8px;
-      color: #666;
-      line-height: 1.5;
-    }
-
-    /* ===== QR BOX ===== */
-    .qr-box {
-      text-align: center;
-      padding: 20px 20px;
-      background: #ffffff;
-      border-radius: 14px;
-      border: 2px solid #e3dcd2;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    }
-
-    .qr-box h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: var(--primary);
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .qr-box img {
-      width: 220px;
-      height: 220px;
-      display: block;
-      margin: 0 auto 10px;
-    }
-
-    .qr-box p {
-      font-size: 13px;
-      color: #555;
-      margin: 0;
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      border-top: 1px solid #e1d6ca;
-      padding: 6px 16px 8px;
-      background: var(--footer-bg);
-      font-size: 11px;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      color: #555;
-    }
-
-    .footer-left span {
-      display: inline-block;
-      margin-right: 8px;
-    }
-
-    .footer-right a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .footer-right a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== PRINT OPTIMIZATION ===== */
-    @page {
-      size: 8.5in 11in;
-      margin: 0;
-    }
-
-    @media print {
-      html, body {
-        margin: 0 !important;
-        padding: 0 !important;
-        background: var(--bg) !important;
-      }
-
-      .page {
-        max-width: 100%;
-        height: 11in;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .header,
-      .content,
-      .footer {
-        width: 100%;
-      }
-
-      * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-
-      .download-wrap {
-        display: none !important;
-      }
-
-      .header,
-      .content,
-      .footer,
-      .qr-box {
-        page-break-inside: avoid !important;
-      }
-    }
-  </style>
 </head>
 
 <body>
-  <div class="page">
 
-    <!-- HEADER BANNER -->
-    <div class="header">
-      <div class="header-inner">
-        <img src="her-voice-banner.png" alt="HER VOICE – Dream. Dare. Do." class="banner-image" />
+<div class="page-wrap">
+
+  <!-- Banner -->
+  <img src="her-voice-banner.png" alt="Her Voice Banner" class="banner">
+
+  <!-- Title Section -->
+  <div class="title-section">
+    <h1>HER VOICE 2025 – Post-Event Survey</h1>
+    <h2>Thank You for Joining Us</h2>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content-row">
+
+    <!-- LEFT SIDE CONTENT -->
+    <div class="left">
+      <p>
+        We’re grateful you were part of <strong>HER VOICE 2025</strong> at <strong>Quincy Hall,
+        Minneapolis</strong>. Your feedback helps us design even more impactful gatherings where Somali
+        women are seen, heard, and celebrated.
+      </p>
+
+      <p>
+        Please take a moment to complete our short post-event survey. Your responses will guide future
+        HER VOICE programs and events.
+      </p>
+
+      <div class="event-details">
+        <h3>Event Details</h3>
+        <p><strong>Event:</strong> HER VOICE 2025</p>
+        <p><strong>Date:</strong> 28th Nov. 2025</p>
+        <p><strong>Venue:</strong> Quincy Hall, Minneapolis</p>
       </div>
+
+      <p style="font-size: 12px; margin-top: 14px;">
+        All responses are confidential and will only be used in aggregate to improve future events and
+        initiatives. Thank you for helping us uplift Somali women’s voices.
+      </p>
     </div>
 
-    <!-- DOWNLOAD BUTTON (hidden on print) -->
-    <div class="download-wrap">
-      <a href="HerVoice2025_PostEventSurvey.pdf" download class="download-btn">
-        ⬇ Download Survey PDF
-      </a>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="content">
-      <div class="content-inner">
-
-        <!-- LEFT SECTION -->
-        <div class="left">
-          <h1 class="page-title">HER VOICE 2025 – Post-Event Survey</h1>
-
-          <h2>Thank You for Joining Us</h2>
-
-          <p>
-            We’re grateful you were part of <strong>HER VOICE 2025</strong> at
-            <strong>Quincy Hall, Minneapolis</strong>. Your feedback helps us design
-            even more impactful gatherings where Somali women are seen, heard,
-            and celebrated.
-          </p>
-
-          <p>
-            Please take a moment to complete our short post-event survey.
-            Your responses will guide future HER VOICE programs and events.
-          </p>
-
-          <div class="event-details">
-            <h3>Event Details</h3>
-            <p><strong>Event:</strong> HER VOICE 2025</p>
-            <p><strong>Date:</strong> 28th Nov. 2025</p>
-            <p><strong>Venue:</strong> Quincy Hall, Minneapolis</p>
-          </div>
-
-          <p class="footnote">
-            All responses are confidential and will only be used in aggregate
-            to improve future events and initiatives. Thank you for helping us
-            uplift Somali women’s voices.
-          </p>
-        </div>
-
-        <!-- RIGHT QR SECTION -->
-        <div class="right">
-          <div class="qr-box">
-            <h3>Scan to Complete the Survey</h3>
-            <!-- Use your post-event survey QR here -->
-            <img src="post-event-qrcode.png" alt="HER VOICE 2025 Post-Event Survey QR Code" />
-            <p>
-              Open your phone camera and point it at the QR code to access
-              the online post-event survey form.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-      <div class="footer-inner">
-        <div class="footer-left">
-          <span>#HerVoice2025</span>
-          <span>#DreamDareDo</span>
-          <span>#SomaliWomen</span>
-          <span>#EmpowerHer</span>
-        </div>
-        <div class="footer-right">
-          Questions? Email <a href="mailto:hervoicemn@gmail.com">hervoicemn@gmail.com</a>
-        </div>
+    <!-- RIGHT SIDE QR BOX -->
+    <div class="right">
+      <div class="qr-box">
+        <h3>Scan to Complete the Survey</h3>
+        <img src="qrcode.png" alt="HER VOICE 2025 Post-Event Survey QR Code">
+        <p>Open your phone camera and point it at the QR code to access the online post-event survey form.</p>
       </div>
     </div>
 
   </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>#HerVoice2025 #DreamDareDo #SomaliWomen #EmpowerHer</div>
+    <div>Questions? Email <strong>hervoicemn@gmail.com</strong></div>
+  </div>
+
+</div>
+
 </body>
 </html>
